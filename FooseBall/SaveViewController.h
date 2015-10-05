@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SaveViewController.h
 //  FooseBall
 //
 //  Created by SIVASANKAR DEVABATHINI on 10/4/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SaveViewController : UIViewController
 
 @end
-
