@@ -10,4 +10,7 @@
 
 @interface RankingsTableViewController : UITableViewController
 
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

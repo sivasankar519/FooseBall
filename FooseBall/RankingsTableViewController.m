@@ -7,17 +7,26 @@
 //
 
 #import "RankingsTableViewController.h"
-
+#import "AppDelegate.h"
 @interface RankingsTableViewController ()
-
+{
+    NSArray *winnerArray;
+    NSArray *looserArray;
+    NSMutableDictionary *playerInfoDict;
+    NSArray *rankingOrder;
+}
 @end
 
 @implementation RankingsTableViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    self.title = @"Rankings";
+    self.navigationController.navigationBar.translucent = NO;
+    self.tabBarController.tabBar.translucent = NO;
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -25,38 +34,107 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(NSSet*)returnPlayersList{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Fooseball" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+ 
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"winner"
+                                                                   ascending:YES];
+    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"looser"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor1,sortDescriptor2, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        // error code
+    }
+    winnerArray = [fetchedObjects valueForKey:@"winner"];
+    looserArray = [fetchedObjects valueForKey:@"looser"];
+    
+    NSMutableSet * playersSet = [NSMutableSet setWithArray:winnerArray];
+    
+    [playersSet unionSet:[NSSet setWithArray:looserArray]];
+
+    
+    return playersSet;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:YES];
    
     self.tabBarController.navigationItem.title = @"Rankings";
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    
+    NSSet *playerList = [self returnPlayersList];
+    NSCountedSet *winnerSet = [[NSCountedSet alloc]initWithArray:winnerArray];
+    NSCountedSet *looserSet = [[NSCountedSet alloc]initWithArray:looserArray];
+    playerInfoDict = [[NSMutableDictionary alloc]init];
+
+    for (NSString *str in playerList) {
+        NSUInteger total = [winnerSet countForObject:str] + [looserSet countForObject:str];
+        NSUInteger win = [winnerSet countForObject:str];
+        NSArray *array = [[NSArray alloc]initWithObjects:[NSNumber numberWithInteger:total],[NSNumber numberWithInteger:win], nil];
+        [playerInfoDict setValue:array forKey:str];
+    }
+    
+    
+    rankingOrder = [[playerInfoDict allKeys] sortedArrayUsingComparator:^(id obj1, id obj2) {
+        if ([playerInfoDict valueForKey:obj1 ][1] < [playerInfoDict valueForKey:obj2 ][1])
+            return (NSComparisonResult)NSOrderedDescending;
+        if ([playerInfoDict valueForKey:obj1 ][1] > [playerInfoDict valueForKey:obj2 ][1])
+            return (NSComparisonResult)NSOrderedAscending;
+        if ([playerInfoDict valueForKey:obj1 ][0] > [playerInfoDict valueForKey:obj2 ][0])
+            return (NSComparisonResult)NSOrderedDescending;
+        if ([playerInfoDict valueForKey:obj1 ][0] < [playerInfoDict valueForKey:obj2 ][0])
+            return (NSComparisonResult)NSOrderedAscending;
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    
+    [self.tableView reloadData];
+    
 }
+
+-(NSManagedObjectContext*)managedObjectContext{
+    return ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+}
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+
+    return [rankingOrder count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    if(cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"HistoryCell"];
+    }
+ 
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@",(long)indexPath.row+1,rankingOrder[indexPath.row]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:
+                                 @"\tGames Played:%d  Won:%d",
+                                 [[playerInfoDict valueForKey:rankingOrder[indexPath.row]][0] intValue],
+                                 [[playerInfoDict valueForKey:rankingOrder[indexPath.row]][1] intValue]];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

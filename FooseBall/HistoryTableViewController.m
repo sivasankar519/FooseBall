@@ -10,7 +10,7 @@
 #import "HistoryTableViewCell.h"
 #import "AppDelegate.h"
 #import "Fooseball.h"
-
+#import "EditViewController.h"
 @interface HistoryTableViewController ()
 
 @end
@@ -26,7 +26,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.tabBarController.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,18 +39,10 @@
     [super viewWillAppear:YES];
 
     self.tabBarController.navigationItem.title = @"History";
+    self.tabBarController.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
 
--(void)updateResult{
-    
-    NSError *error = nil;
-    NSManagedObjectContext *context = self.managedObjectContext;
-    if (![context save:&error]) {
-        NSLog(@"Error! %@", error);
-    }
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 -(NSManagedObjectContext*)managedObjectContext{
     return ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
@@ -114,7 +106,7 @@
         if (![context save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            
             
         }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -153,6 +145,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Fooseball *selectedRow = (Fooseball*) [self.fetchedResultsController objectAtIndexPath:indexPath];
         editController.currentResult = selectedRow;
+        editController.managedObjectContext = [self managedObjectContext];
     }
     
 }
@@ -187,7 +180,7 @@
     if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        
         
     }
     

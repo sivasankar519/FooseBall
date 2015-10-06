@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Fooseball.h"
-@protocol EditViewControllerDelegate;
+
 @interface EditViewController : UIViewController{
     
 }
@@ -21,22 +21,17 @@
 @property (weak, nonatomic) IBOutlet UITextField *score1;
 
 @property (weak, nonatomic) IBOutlet UITextField *score2;
-
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)resign:(id)sender;
 
 - (IBAction)doneActn:(id)sender;
 
-@property (nonatomic, weak) id <EditViewControllerDelegate> delegate;
 
 @end
 
 
-@protocol EditViewControllerDelegate
 
--(void)updateResult;
-
-@end
 
 
 

@@ -68,7 +68,7 @@
         return;
     }
     
-    if([self.player1.text integerValue] > [self.player2.text integerValue]){
+    if([self.score1.text integerValue] > [self.score2.text integerValue]){
         [self.currentResult setValue:self.player1.text forKey:@"winner"];
         [self.currentResult setValue:self.player2.text forKey:@"looser"];
         [self.currentResult setValue:self.score1.text forKey:@"winnerScore"];
@@ -85,12 +85,22 @@
         [self.currentResult setValue:[NSDate date] forKey:@"postDate"];
     }
     
-    [self.delegate updateResult];
+    [self updateResult];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+-(void)updateResult{
+    
+    NSError *error = nil;
+    NSManagedObjectContext *context = self.managedObjectContext;
+    if (![context save:&error]) {
+        // handling erroe
+    }
     
 }
 
 -(BOOL)validate{
-    if(self.player1.text.length && self.player2.text.length && [self.score1.text integerValue] && [self.score2.text integerValue] && ([self.score1.text integerValue] - [self.score2.text integerValue]))
+    if(self.player1.text.length && self.player2.text.length && [self.score1.text length] && [self.score2.text length] && ([self.score1.text integerValue] - [self.score2.text integerValue]) && !([self.player2.text isEqualToString:self.player1.text]))
         
         return YES;
     return NO;

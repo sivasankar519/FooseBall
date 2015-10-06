@@ -37,6 +37,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
     self.tabBarController.navigationItem.title = @"Foose Ball";
 }
 - (void)didReceiveMemoryWarning {
@@ -87,7 +88,7 @@
     NSError *error = nil;
     
     if (![context save:&error]) {
-        NSLog(@"Error! %@", error);
+        // handling error
     }
     
     self.player1Text.text = @"";
@@ -104,7 +105,7 @@
 }
 
 -(BOOL)validate{
-    if(self.player1Text.text.length && self.player2Text.text.length && [self.player1Score.text integerValue] && [self.player2Score.text integerValue] && ([self.player1Score.text integerValue] - [self.player2Score.text integerValue]))
+    if(self.player1Text.text.length && self.player2Text.text.length && [self.player1Score.text length] && [self.player2Score.text length] && ([self.player1Score.text integerValue] - [self.player2Score.text integerValue]) && !([self.player1Text.text isEqualToString:self.player2Text.text]))
         
         return YES;
     return NO;
