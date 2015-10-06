@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "EditViewController.h"
 
-@interface HistoryTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface HistoryTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, EditViewControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

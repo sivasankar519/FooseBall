@@ -19,6 +19,7 @@
 		EF11768D1BC22CFF00DE6CF5 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF11768C1BC22CFF00DE6CF5 /* HistoryTableViewController.m */; };
 		EFDC9C1E1BC2DDFD002F34EB /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC9C1C1BC2DDFD002F34EB /* HistoryTableViewCell.m */; };
 		EFDC9C5D1BC325C3002F34EB /* Fooseball.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC9C5C1BC325C3002F34EB /* Fooseball.m */; };
+		EFDC9C601BC3419B002F34EB /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC9C5F1BC3419B002F34EB /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		EFDC9C1C1BC2DDFD002F34EB /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		EFDC9C5B1BC325C3002F34EB /* Fooseball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fooseball.h; sourceTree = "<group>"; };
 		EFDC9C5C1BC325C3002F34EB /* Fooseball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fooseball.m; sourceTree = "<group>"; };
+		EFDC9C5E1BC3419B002F34EB /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		EFDC9C5F1BC3419B002F34EB /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				EF1176891BC22CED00DE6CF5 /* RankingsTableViewController.m */,
 				EF11768B1BC22CFF00DE6CF5 /* HistoryTableViewController.h */,
 				EF11768C1BC22CFF00DE6CF5 /* HistoryTableViewController.m */,
+				EFDC9C5E1BC3419B002F34EB /* EditViewController.h */,
+				EFDC9C5F1BC3419B002F34EB /* EditViewController.m */,
 				EFDC9C1B1BC2DDFD002F34EB /* HistoryTableViewCell.h */,
 				EFDC9C1C1BC2DDFD002F34EB /* HistoryTableViewCell.m */,
 				EFDC9C5B1BC325C3002F34EB /* Fooseball.h */,
@@ -243,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF11768D1BC22CFF00DE6CF5 /* HistoryTableViewController.m in Sources */,
+				EFDC9C601BC3419B002F34EB /* EditViewController.m in Sources */,
 				EF11768A1BC22CED00DE6CF5 /* RankingsTableViewController.m in Sources */,
 				EF1176651BC22B7600DE6CF5 /* FooseBall.xcdatamodeld in Sources */,
 				EF1176871BC22CC600DE6CF5 /* SaveViewController.m in Sources */,

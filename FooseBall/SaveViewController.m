@@ -59,6 +59,11 @@
 
 - (IBAction)saveAction:(id)sender {
     
+    if(![self validate]){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Invalid information entered!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
     NSManagedObjectContext *context = [self managedObjectContext];
     Fooseball *managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Fooseball" inManagedObjectContext:context];
     
@@ -93,9 +98,15 @@
     [self.view endEditing:YES];
     
 }
-    
 
 - (IBAction)returnKeyBoard:(id)sender {
-    [self.view resignFirstResponder];
+    [sender resignFirstResponder];
+}
+
+-(BOOL)validate{
+    if(self.player1Text.text.length && self.player2Text.text.length && [self.player1Score.text integerValue] && [self.player2Score.text integerValue] && ([self.player1Score.text integerValue] - [self.player2Score.text integerValue]))
+        
+        return YES;
+    return NO;
 }
 @end

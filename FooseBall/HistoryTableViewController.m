@@ -10,6 +10,7 @@
 #import "HistoryTableViewCell.h"
 #import "AppDelegate.h"
 #import "Fooseball.h"
+
 @interface HistoryTableViewController ()
 
 @end
@@ -39,6 +40,16 @@
 
     self.tabBarController.navigationItem.title = @"History";
     
+}
+
+-(void)updateResult{
+    
+    NSError *error = nil;
+    NSManagedObjectContext *context = self.managedObjectContext;
+    if (![context save:&error]) {
+        NSLog(@"Error! %@", error);
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(NSManagedObjectContext*)managedObjectContext{
@@ -111,6 +122,10 @@
     }   
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 
 /*
 // Override to support rearranging the table view.
@@ -126,15 +141,22 @@
 }
 */
 
-/*
-#pragma mark - Navigation
+
+#pragma mark - Navigation Segue
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"Edit"]){
+        EditViewController *editController = (EditViewController*) [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Fooseball *selectedRow = (Fooseball*) [self.fetchedResultsController objectAtIndexPath:indexPath];
+        editController.currentResult = selectedRow;
+    }
+    
 }
-*/
+
 #pragma mark - Fetched Results controller
 
 - (NSFetchedResultsController *)fetchedResultsController
