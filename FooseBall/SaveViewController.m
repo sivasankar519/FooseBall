@@ -38,7 +38,7 @@
     [super viewWillAppear:YES];
     
     self.tabBarController.navigationItem.rightBarButtonItem = nil;
-    self.tabBarController.navigationItem.title = @"Foose Ball";
+    self.tabBarController.navigationItem.title = @"Foosball";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

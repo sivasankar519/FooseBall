@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EF1176591BC22B7600DE6CF5 /* FooseBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooseBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1176591BC22B7600DE6CF5 /* Foosball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foosball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF11765D1BC22B7600DE6CF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF11765E1BC22B7600DE6CF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EF1176601BC22B7600DE6CF5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		EF11765A1BC22B7600DE6CF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF1176591BC22B7600DE6CF5 /* FooseBall.app */,
+				EF1176591BC22B7600DE6CF5 /* Foosball.app */,
 				EF1176751BC22B7600DE6CF5 /* FooseBallTests.xctest */,
 			);
 			name = Products;
@@ -164,7 +164,7 @@
 			);
 			name = FooseBall;
 			productName = FooseBall;
-			productReference = EF1176591BC22B7600DE6CF5 /* FooseBall.app */;
+			productReference = EF1176591BC22B7600DE6CF5 /* Foosball.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EF1176741BC22B7600DE6CF5 /* FooseBallTests */ = {
@@ -383,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FooseBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Foosball;
 			};
 			name = Debug;
 		};
@@ -393,7 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FooseBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Foosball;
 			};
 			name = Release;
 		};

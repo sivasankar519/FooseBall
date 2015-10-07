@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80400482599915235" blue="0.45531750494220058" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pzJ-Se-f8J" firstAttribute="leading" secondItem="3Ua-4F-hBO" secondAttribute="leading" id="7OL-qw-Whi"/>
                             <constraint firstItem="ZgY-ec-pDL" firstAttribute="top" secondItem="Mva-oE-rRv" secondAttribute="bottom" constant="74" id="Akw-Y9-VfF"/>
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTL-DQ-0RX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138" y="-669"/>
+            <point key="canvasLocation" x="-136" y="-716"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3mz-Ts-Uyl">
@@ -102,6 +102,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VsT-6A-pvi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="YuJ-tf-KcT" kind="relationship" relationship="rootViewController" id="Yx7-5I-INa"/>
@@ -111,11 +116,11 @@
             </objects>
             <point key="canvasLocation" x="-1519" y="-77"/>
         </scene>
-        <!--Foose Ball-->
+        <!--Foosball-->
         <scene sceneID="aih-2o-QdJ">
             <objects>
                 <tabBarController id="YuJ-tf-KcT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Foose Ball" id="uSA-sB-dSc"/>
+                    <navigationItem key="navigationItem" title="Foosball" id="uSA-sB-dSc"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="E7b-ae-ykM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -130,7 +135,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUh-CO-pGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="-77"/>
+            <point key="canvasLocation" x="-868" y="-385"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="RZ7-PC-8Wm">
@@ -139,7 +144,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hIi-mz-dt1">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HistoryCell" id="iOh-vs-xC6" customClass="HistoryTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -177,6 +182,7 @@
                                         <constraint firstItem="JNE-oD-NjN" firstAttribute="leading" secondItem="bNl-Wk-M7J" secondAttribute="leadingMargin" id="xTy-rb-8ts"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="player1Label" destination="JNE-oD-NjN" id="xVa-lZ-t1J"/>
                                     <outlet property="player2Label" destination="STK-bE-qvh" id="Qvc-rK-c8T"/>
@@ -270,7 +276,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Fcn-YE-kcj" firstAttribute="baseline" secondItem="dlb-DU-WVi" secondAttribute="baseline" id="7Sp-qW-DiG"/>
                             <constraint firstItem="cES-yf-l2q" firstAttribute="firstBaseline" secondItem="Ked-R1-igV" secondAttribute="firstBaseline" id="Ai5-E9-vcW"/>
@@ -323,7 +329,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1HB-Jw-jZU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80400482600000001" blue="0.4553175049" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="PMF-RF-hJY" detailTextLabel="NyC-Ck-Xx9" style="IBUITableViewCellStyleValue1" id="U9L-We-Mfq">
@@ -345,6 +351,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -356,7 +363,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hl-Gm-wxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508" y="-293"/>
+            <point key="canvasLocation" x="479" y="-708"/>
         </scene>
     </scenes>
 </document>

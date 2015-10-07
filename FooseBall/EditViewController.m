@@ -94,7 +94,7 @@
     NSError *error = nil;
     NSManagedObjectContext *context = self.managedObjectContext;
     if (![context save:&error]) {
-        // handling erroe
+        // handling error
     }
     
 }
